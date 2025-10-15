@@ -120,9 +120,14 @@ func calculate(value float64, currencyFrom string, currencyTo string) (result fl
 		converter = USD_TO_EUR
 	case currencyFrom == "USD" && currencyTo == "RUB":
 		converter = USD_TO_RUB
-
 	case currencyFrom == "EUR" && currencyTo == "RUB":
 		converter = EUR_TO_RUB
+	case currencyFrom == "EUR" && currencyTo == "USD":
+		converter = 1 / USD_TO_EUR
+	case currencyFrom == "RUB" && currencyTo == "USD":
+		converter = 1 / USD_TO_RUB
+	case currencyFrom == "RUB" && currencyTo == "EUR":
+		converter = 1 / EUR_TO_RUB
 	}
 
 	result = value * converter
